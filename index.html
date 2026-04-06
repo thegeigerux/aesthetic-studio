@@ -1763,7 +1763,10 @@
         if (!state.current) return;
         const colors = state.current.palette.colors;
         const cssVars = colors
-          .map((color) => `--${color.role.toLowerCase().replace(/\s+/g, "-")}: ${color.hex};`)
+          .map(
+            (color) =>
+              `--${color.role.toLowerCase().replace(/\s+/g, "-")}: ${color.hex};`,
+          )
           .join("\n");
         const cssBlock = `:root {\n  ${cssVars}\n}`;
         copyText(cssBlock, "Palette CSS");
