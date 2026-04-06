@@ -207,8 +207,10 @@
       .bottom-grid {
         margin-top: 24px;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1.03fr 1.2fr;
         gap: 24px;
+        align-items: start;
+        width: 100%;
       }
 
       .panel {
@@ -340,6 +342,10 @@
         white-space: nowrap;
       }
 
+      .controls-panel {
+        margin-bottom: -6px;
+      }
+
       .palette-section {
         margin-top: 22px;
       }
@@ -387,8 +393,8 @@
 
       .swatch-hex-row {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
         gap: 8px;
       }
 
@@ -406,6 +412,8 @@
         font-weight: 700;
         font-size: 0.74rem;
         padding: 0;
+        width: 100%;
+        text-align: left;
       }
 
       .preview-panel {
@@ -566,8 +574,7 @@
           color 240ms ease;
       }
 
-      .share-card__top,
-      .share-card__middle {
+      .share-card__top {
         display: flex;
         justify-content: space-between;
         align-items: start;
@@ -575,7 +582,10 @@
       }
 
       .share-card__middle {
+        display: flex;
         flex-direction: column;
+        align-items: start;
+        gap: 16px;
         margin-top: 20px;
       }
 
@@ -643,8 +653,8 @@
       }
 
       .saved-item__top {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 1fr auto;
         gap: 12px;
         align-items: start;
       }
@@ -814,6 +824,9 @@
                 <p class="section-kicker">Palette</p>
                 <h2>Curated color system</h2>
               </div>
+              <button id="copyCssBtn" class="copy-chip" type="button">
+                Copy as CSS
+              </button>
             </div>
 
             <div id="paletteGrid" class="palette-grid" aria-live="polite"></div>
@@ -1375,6 +1388,7 @@
         favoritesList: document.getElementById("favoritesList"),
         toast: document.getElementById("toast"),
         downloadCardBtn: document.getElementById("downloadCardBtn"),
+        copyCssBtn: document.getElementById("copyCssBtn"),
       };
 
       function randomItem(arr) {
@@ -1745,6 +1759,16 @@
         ctx.fillText(line, x, y);
       }
 
+      function copyPaletteAsCss() {
+        if (!state.current) return;
+        const colors = state.current.palette.colors;
+        const cssVars = colors
+          .map((color) => `--${color.role.toLowerCase().replace(/\s+/g, "-")}: ${color.hex};`)
+          .join("\n");
+        const cssBlock = `:root {\n  ${cssVars}\n}`;
+        copyText(cssBlock, "Palette CSS");
+      }
+
       els.generateBtn.addEventListener("click", generateAesthetic);
       els.favoriteBtn.addEventListener("click", saveFavorite);
       els.copyMoodBtn.addEventListener("click", () =>
@@ -1753,6 +1777,7 @@
       els.copyFontsBtn.addEventListener("click", () =>
         copyText(state.current.fonts.name, "Font pairing"),
       );
+      els.copyCssBtn.addEventListener("click", copyPaletteAsCss);
       els.themeToggle.addEventListener("click", () =>
         setTheme(!state.darkMode),
       );
