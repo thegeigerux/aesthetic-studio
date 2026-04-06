@@ -1,0 +1,766 @@
+      const moods = [
+        {
+          name: "Quiet Luxury",
+          description: "Refined, calm, and premium with soft contrast.",
+          shareLine: "A refined palette for calm, high-end digital brands.",
+          brandNames: ["Nocturne Atelier", "Velour House", "Aurelian Studio"],
+          taglines: [
+            "Elegant systems for modern creators.",
+            "Soft power, strong presence.",
+            "Premium identity for thoughtful brands.",
+          ],
+          previewTitles: [
+            "Craft a visual identity that feels intentional.",
+            "A softer kind of luxury still makes a statement.",
+            "Quiet design can still command the room.",
+          ],
+          previewBodies: [
+            "This aesthetic pairs strong typography and a curated palette to create a clear, elevated first impression.",
+            "Designed for founders, studios, and brands that want polish without shouting.",
+            "Clean hierarchy, nuanced contrast, and a calm sense of confidence make this direction feel expensive in the best way.",
+          ],
+        },
+        {
+          name: "Editorial Modern",
+          description:
+            "Sharp, typographic, and stylish like a digital magazine spread.",
+          shareLine: "A bold editorial look with polished digital edge.",
+          brandNames: ["Signal Journal", "Frame Theory", "Studio Meridian"],
+          taglines: [
+            "Modern stories, beautifully structured.",
+            "Where clarity meets visual punch.",
+            "Design direction with a point of view.",
+          ],
+          previewTitles: [
+            "Build something that looks published before it looks produced.",
+            "Typography can be the whole mood if you let it.",
+            "Aesthetic direction with magazine energy.",
+          ],
+          previewBodies: [
+            "Clean interface framing gives the typography and palette room to breathe like an art-directed feature.",
+            "This direction works especially well for creative tools, media brands, portfolios, and high-taste landing pages.",
+            "There is a little bit of print-world drama here, but it still behaves beautifully on screen.",
+          ],
+        },
+        {
+          name: "Playful Minimal",
+          description:
+            "Bright, friendly, and tidy with personality that never gets messy.",
+          shareLine:
+            "Fresh, approachable color and typography for cheerful brands.",
+          brandNames: ["Luma Pop", "Kindred Loop", "Sunny Parcel"],
+          taglines: [
+            "Playful visuals. Serious clarity.",
+            "Friendly design for modern products.",
+            "A bright little world with good manners.",
+          ],
+          previewTitles: [
+            "Playful doesn’t have to mean chaotic.",
+            "Give your brand some joy without losing structure.",
+            "Small moments of delight go a long way.",
+          ],
+          previewBodies: [
+            "Rounded shapes, fresh contrast, and clean typography make this direction feel warm, modern, and highly usable.",
+            "Perfect for indie tools, creator brands, lifestyle apps, and anything that wants personality with restraint.",
+            "It feels like a well-organized desk with one unexpectedly fun object sitting in the sunlight.",
+          ],
+        },
+        {
+          name: "Moody Tech",
+          description:
+            "Dark, cinematic, and futuristic without slipping into gamer chaos.",
+          shareLine: "A cinematic tech palette with clean modern structure.",
+          brandNames: ["Vector Night", "Obsidian Grid", "Signal Forge"],
+          taglines: [
+            "Build the future with atmosphere.",
+            "Precision wrapped in shadow.",
+            "Sleek digital systems after dark.",
+          ],
+          previewTitles: [
+            "Technology looks better with a little mystery.",
+            "A darker interface can still feel premium and clear.",
+            "Cinematic mood. Product-grade structure.",
+          ],
+          previewBodies: [
+            "This direction uses deep tones and high-contrast typography to feel advanced, polished, and intentional.",
+            "Great for software concepts, developer tools, AI products, experimental studios, and sleek portfolios.",
+            "It has the energy of a glowing screen in a quiet room at 1:00 a.m., but make it tasteful.",
+          ],
+        },
+        {
+          name: "Organic Calm",
+          description:
+            "Natural, soft, and grounded with a human-centered warmth.",
+          shareLine:
+            "Grounded, natural branding with soft editorial restraint.",
+          brandNames: ["Cedar Bloom", "Drift & Root", "Fieldtone Studio"],
+          taglines: [
+            "Soft systems for human brands.",
+            "Natural texture, digital clarity.",
+            "Warmth with a clean spine.",
+          ],
+          previewTitles: [
+            "Some brands should feel like an exhale.",
+            "Calm visuals can make trust feel instant.",
+            "A human-centered aesthetic with real warmth.",
+          ],
+          previewBodies: [
+            "Muted tones, natural contrast, and expressive serif details make this direction feel grounded and welcoming.",
+            "Beautiful for wellness, interiors, handmade products, thoughtful tech, and personal brands.",
+            "It feels like linen curtains moving in soft daylight. Not loud. Still unforgettable.",
+          ],
+        },
+        {
+          name: "Bold Boutique",
+          description:
+            "Fashion-forward, expressive, and high-contrast with premium personality.",
+          shareLine: "A boutique-forward visual system with standout contrast.",
+          brandNames: ["Velvet Form", "Maison Orbit", "Gilded Current"],
+          taglines: [
+            "Statement visuals with clean execution.",
+            "Luxury, but with pulse.",
+            "A distinctive look built to be remembered.",
+          ],
+          previewTitles: [
+            "Make the brand feel expensive before the first scroll.",
+            "Strong contrast can feel boutique, not brutal.",
+            "A sharper silhouette for high-taste brands.",
+          ],
+          previewBodies: [
+            "The right pairing of dramatic typography and a controlled palette can turn a simple concept into something magnetic.",
+            "Ideal for fashion, beauty, personal brands, elevated ecommerce, and premium creator products.",
+            "This one walks into the room wearing a tailored coat.",
+          ],
+        },
+      ];
+
+      const palettes = [
+        {
+          name: "Quiet Linen",
+          colors: [
+            { role: "Canvas", hex: "#F5F1EA" },
+            { role: "Stone", hex: "#D9D0C3" },
+            { role: "Taupe", hex: "#A78F7A" },
+            { role: "Espresso", hex: "#4B372F" },
+            { role: "Ink", hex: "#181413" },
+          ],
+        },
+        {
+          name: "Gallery Bloom",
+          colors: [
+            { role: "Paper", hex: "#FFF8F2" },
+            { role: "Blush", hex: "#EAC7C1" },
+            { role: "Rosewood", hex: "#B8756E" },
+            { role: "Plum", hex: "#5E3B4D" },
+            { role: "Night", hex: "#221922" },
+          ],
+        },
+        {
+          name: "Moss Atelier",
+          colors: [
+            { role: "Mist", hex: "#F4F0E8" },
+            { role: "Sage", hex: "#B7C0AA" },
+            { role: "Olive", hex: "#7E8C64" },
+            { role: "Bark", hex: "#5C4C3D" },
+            { role: "Forest", hex: "#273127" },
+          ],
+        },
+        {
+          name: "Midnight Signal",
+          colors: [
+            { role: "Void", hex: "#0D1117" },
+            { role: "Steel", hex: "#243447" },
+            { role: "Electric", hex: "#4DA8DA" },
+            { role: "Frost", hex: "#C8E7F5" },
+            { role: "Cloud", hex: "#F5F7FA" },
+          ],
+        },
+        {
+          name: "Citrus Type",
+          colors: [
+            { role: "Cream", hex: "#FFF9EE" },
+            { role: "Butter", hex: "#F7E39C" },
+            { role: "Apricot", hex: "#F2B880" },
+            { role: "Coral", hex: "#E7775A" },
+            { role: "Charcoal", hex: "#2E2A2A" },
+          ],
+        },
+        {
+          name: "Ink & Pearl",
+          colors: [
+            { role: "Pearl", hex: "#FBFAF7" },
+            { role: "Fog", hex: "#D9D8D3" },
+            { role: "Slate", hex: "#7F8790" },
+            { role: "Navy", hex: "#24314A" },
+            { role: "Ink", hex: "#111827" },
+          ],
+        },
+        {
+          name: "Clay Studio",
+          colors: [
+            { role: "Porcelain", hex: "#F7F3EE" },
+            { role: "Sand", hex: "#DFCDBD" },
+            { role: "Terracotta", hex: "#C67C5E" },
+            { role: "Brick", hex: "#8B4A3B" },
+            { role: "Earth", hex: "#3D2A26" },
+          ],
+        },
+        {
+          name: "Neo Mint",
+          colors: [
+            { role: "Snow", hex: "#F7FFFC" },
+            { role: "Mint", hex: "#CFF6E8" },
+            { role: "Seafoam", hex: "#7ED8BE" },
+            { role: "Teal", hex: "#2C8C7A" },
+            { role: "Pine", hex: "#143A35" },
+          ],
+        },
+        {
+          name: "Berry Editorial",
+          colors: [
+            { role: "Shell", hex: "#FFF7FA" },
+            { role: "Petal", hex: "#F2C8D5" },
+            { role: "Berry", hex: "#C06284" },
+            { role: "Wine", hex: "#702A48" },
+            { role: "Noir", hex: "#1D1720" },
+          ],
+        },
+        {
+          name: "Sunlit Modern",
+          colors: [
+            { role: "Ivory", hex: "#FFFDF8" },
+            { role: "Sandstone", hex: "#E9DECB" },
+            { role: "Ochre", hex: "#CDA15D" },
+            { role: "Walnut", hex: "#6B4C35" },
+            { role: "Obsidian", hex: "#161311" },
+          ],
+        },
+      ];
+
+      const fontPairings = [
+        {
+          name: "Merriweather + Inter",
+          heading: "Merriweather",
+          body: "Inter",
+          detail:
+            "Readable, trustworthy, and editorial without feeling delicate.",
+        },
+        {
+          name: "DM Serif Display + Manrope",
+          heading: "DM Serif Display",
+          body: "Manrope",
+          detail:
+            "Expressive headline character paired with a highly legible modern sans.",
+        },
+        {
+          name: "Newsreader + Source Sans 3",
+          heading: "Newsreader",
+          body: "Source Sans 3",
+          detail:
+            "Warm editorial tone with a body font built for clarity and long reading.",
+        },
+        {
+          name: "Libre Baskerville + Atkinson Hyperlegible Next",
+          heading: "Libre Baskerville",
+          body: "Atkinson Hyperlegible Next",
+          detail:
+            "Classic serif presence supported by an accessibility-first body font.",
+        },
+        {
+          name: "Fraunces + Plus Jakarta Sans",
+          heading: "Fraunces",
+          body: "Plus Jakarta Sans",
+          detail:
+            "High personality up top, clean interface legibility underneath.",
+        },
+        {
+          name: "Playfair Display + Inter",
+          heading: "Playfair Display",
+          body: "Inter",
+          detail:
+            "Familiar editorial elegance with dependable digital readability.",
+        },
+        {
+          name: "Plus Jakarta Sans + Inter",
+          heading: "Plus Jakarta Sans",
+          body: "Inter",
+          detail:
+            "A clean sans-first pairing for more UI-heavy and accessibility-minded directions.",
+        },
+        {
+          name: "Manrope + Source Sans 3",
+          heading: "Manrope",
+          body: "Source Sans 3",
+          detail:
+            "Minimal, readable, and strong for product concepts that need less flair and more clarity.",
+        },
+      ];
+
+      const state = {
+        current: null,
+        favorites: JSON.parse(localStorage.getItem("asg-favorites") || "[]"),
+        history: JSON.parse(localStorage.getItem("asg-history") || "[]"),
+        darkMode: JSON.parse(localStorage.getItem("asg-darkmode") || "false"),
+      };
+
+      const els = {
+        body: document.body,
+        themeToggle: document.getElementById("themeToggle"),
+        generateBtn: document.getElementById("generateBtn"),
+        favoriteBtn: document.getElementById("favoriteBtn"),
+        lockPalette: document.getElementById("lockPalette"),
+        lockFonts: document.getElementById("lockFonts"),
+        lockMood: document.getElementById("lockMood"),
+        paletteGrid: document.getElementById("paletteGrid"),
+        moodName: document.getElementById("moodName"),
+        moodDescription: document.getElementById("moodDescription"),
+        fontPairingName: document.getElementById("fontPairingName"),
+        fontPairingDetail: document.getElementById("fontPairingDetail"),
+        copyMoodBtn: document.getElementById("copyMoodBtn"),
+        copyFontsBtn: document.getElementById("copyFontsBtn"),
+        previewSurface: document.getElementById("previewSurface"),
+        previewWindow: document.querySelector(".preview-window"),
+        previewTitle: document.getElementById("previewTitle"),
+        previewBody: document.getElementById("previewBody"),
+        previewBadge: document.getElementById("previewBadge"),
+        previewPrimaryBtn: document.getElementById("previewPrimaryBtn"),
+        previewSecondaryBtn: document.getElementById("previewSecondaryBtn"),
+        brandName: document.getElementById("brandName"),
+        brandTagline: document.getElementById("brandTagline"),
+        brandMoodTag: document.getElementById("brandMoodTag"),
+        brandCard: document.querySelector(".brand-card"),
+        miniSwatch1: document.getElementById("miniSwatch1"),
+        miniSwatch2: document.getElementById("miniSwatch2"),
+        miniSwatch3: document.getElementById("miniSwatch3"),
+        shareCardPreview: document.getElementById("shareCardPreview"),
+        shareMoodPill: document.getElementById("shareMoodPill"),
+        shareCardTitle: document.getElementById("shareCardTitle"),
+        shareCardSubtitle: document.getElementById("shareCardSubtitle"),
+        shareSwatches: document.getElementById("shareSwatches"),
+        historyList: document.getElementById("historyList"),
+        favoritesList: document.getElementById("favoritesList"),
+        toast: document.getElementById("toast"),
+        downloadCardBtn: document.getElementById("downloadCardBtn"),
+        copyCssBtn: document.getElementById("copyCssBtn"),
+      };
+
+      function randomItem(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+      }
+
+      function getHexLuminance(hex) {
+        const clean = hex.replace("#", "");
+        const r = parseInt(clean.substring(0, 2), 16);
+        const g = parseInt(clean.substring(2, 4), 16);
+        const b = parseInt(clean.substring(4, 6), 16);
+        return (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+      }
+
+      function textColorForBg(hex) {
+        return getHexLuminance(hex) > 0.6 ? "#171717" : "#F9F7F3";
+      }
+
+      function textColorForHexes(hexes) {
+        const averageLuminance =
+          hexes.reduce((sum, hex) => sum + getHexLuminance(hex), 0) /
+          hexes.length;
+        return averageLuminance > 0.62 ? "#171717" : "#F9F7F3";
+      }
+
+      function showToast(message) {
+        els.toast.textContent = message;
+        els.toast.classList.add("show");
+        clearTimeout(showToast.timer);
+        showToast.timer = setTimeout(() => {
+          els.toast.classList.remove("show");
+        }, 1800);
+      }
+
+      async function copyText(text, label) {
+        try {
+          await navigator.clipboard.writeText(text);
+          showToast(`${label} copied`);
+        } catch {
+          showToast("Copy failed");
+        }
+      }
+
+      function makeId(entry) {
+        return `${entry.mood.name}-${entry.palette.name}-${entry.fonts.name}`;
+      }
+
+      function generateAesthetic() {
+        const mood =
+          els.lockMood.checked && state.current
+            ? state.current.mood
+            : randomItem(moods);
+        const palette =
+          els.lockPalette.checked && state.current
+            ? state.current.palette
+            : randomItem(palettes);
+        const fonts =
+          els.lockFonts.checked && state.current
+            ? state.current.fonts
+            : randomItem(fontPairings);
+
+        const generated = {
+          mood,
+          palette,
+          fonts,
+          previewTitle: randomItem(mood.previewTitles),
+          previewBody: randomItem(mood.previewBodies),
+          brandName: randomItem(mood.brandNames),
+          brandTagline: randomItem(mood.taglines),
+          timestamp: new Date().toISOString(),
+        };
+
+        state.current = generated;
+        pushHistory(generated);
+        renderCurrent();
+        renderHistory();
+        renderFavorites();
+      }
+
+      function pushHistory(entry) {
+        const id = makeId(entry);
+        const trimmed = state.history.filter((item) => makeId(item) !== id);
+        trimmed.unshift(entry);
+        state.history = trimmed.slice(0, 8);
+        localStorage.setItem("asg-history", JSON.stringify(state.history));
+      }
+
+      function saveFavorite() {
+        if (!state.current) return;
+        const id = makeId(state.current);
+        const exists = state.favorites.some((item) => makeId(item) === id);
+        if (exists) {
+          showToast("Already saved");
+          return;
+        }
+        state.favorites.unshift(state.current);
+        state.favorites = state.favorites.slice(0, 18);
+        localStorage.setItem("asg-favorites", JSON.stringify(state.favorites));
+        renderFavorites();
+        showToast("Saved to favorites");
+      }
+
+      function removeFavorite(index) {
+        state.favorites.splice(index, 1);
+        localStorage.setItem("asg-favorites", JSON.stringify(state.favorites));
+        renderFavorites();
+        showToast("Removed favorite");
+      }
+
+      function applyAesthetic(entry, addToHistory = true) {
+        state.current = {
+          ...entry,
+          timestamp: new Date().toISOString(),
+        };
+        if (addToHistory) {
+          pushHistory(state.current);
+        }
+        renderCurrent();
+        renderHistory();
+        renderFavorites();
+        showToast("Aesthetic loaded");
+      }
+
+      function renderPalette(palette) {
+        els.paletteGrid.innerHTML = "";
+
+        palette.colors.forEach((color) => {
+          const card = document.createElement("article");
+          card.className = "swatch-card fade-refresh";
+
+          card.innerHTML = `
+          <div class="swatch-color" style="background:${color.hex}"></div>
+          <div class="swatch-info">
+            <p class="swatch-role">${color.role}</p>
+            <div class="swatch-hex-row">
+              <p class="swatch-hex">${color.hex}</p>
+              <button class="swatch-copy-btn" type="button" aria-label="Copy ${color.hex}">Copy</button>
+            </div>
+          </div>
+        `;
+
+          card
+            .querySelector(".swatch-copy-btn")
+            .addEventListener("click", () => {
+              copyText(color.hex, color.hex);
+            });
+
+          els.paletteGrid.appendChild(card);
+        });
+      }
+
+      function renderCurrent() {
+        const {
+          mood,
+          palette,
+          fonts,
+          previewTitle,
+          previewBody,
+          brandName,
+          brandTagline,
+        } = state.current;
+        const colors = palette.colors.map((c) => c.hex);
+
+        els.moodName.textContent = mood.name;
+        els.moodDescription.textContent = mood.description;
+        els.fontPairingName.textContent = fonts.name;
+        els.fontPairingDetail.textContent = fonts.detail;
+
+        renderPalette(palette);
+
+        els.previewWindow.classList.remove("fade-refresh");
+        void els.previewWindow.offsetWidth;
+        els.previewWindow.classList.add("fade-refresh");
+
+        const previewTextColor = textColorForHexes(colors.slice(0, 3));
+        const secondaryBorder =
+          previewTextColor === "#171717"
+            ? "rgba(23,23,23,0.18)"
+            : "rgba(255,255,255,0.34)";
+
+        els.previewWindow.style.background = `linear-gradient(135deg, ${colors[0]} 0%, ${colors[1]} 26%, ${colors[3]} 100%)`;
+        els.previewWindow.style.color = previewTextColor;
+
+        els.previewTitle.textContent = previewTitle;
+        els.previewBody.textContent = previewBody;
+        els.previewBadge.textContent = mood.name.toUpperCase();
+        els.brandName.textContent = brandName;
+        els.brandTagline.textContent = brandTagline;
+        els.brandMoodTag.textContent = mood.name;
+
+        els.previewTitle.style.fontFamily = `'${fonts.heading}', serif`;
+        els.brandName.style.fontFamily = `'${fonts.heading}', serif`;
+        els.previewBody.style.fontFamily = `'${fonts.body}', sans-serif`;
+        els.brandTagline.style.fontFamily = `'${fonts.body}', sans-serif`;
+        els.previewBadge.style.fontFamily = `'${fonts.body}', sans-serif`;
+
+        els.previewPrimaryBtn.style.background = colors[4];
+        els.previewPrimaryBtn.style.color = textColorForBg(colors[4]);
+        els.previewSecondaryBtn.style.background = "transparent";
+        els.previewSecondaryBtn.style.color = previewTextColor;
+        els.previewSecondaryBtn.style.borderColor = secondaryBorder;
+        els.brandCard.style.background =
+          previewTextColor === "#171717"
+            ? "rgba(255,255,255,0.34)"
+            : "rgba(255,255,255,0.14)";
+        els.brandCard.style.borderColor =
+          previewTextColor === "#171717"
+            ? "rgba(23,23,23,0.08)"
+            : "rgba(255,255,255,0.14)";
+
+        els.miniSwatch1.style.background = colors[1];
+        els.miniSwatch2.style.background = colors[2];
+        els.miniSwatch3.style.background = colors[4];
+
+        els.shareCardPreview.style.background = `linear-gradient(135deg, ${colors[3]} 0%, ${colors[2]} 100%)`;
+        els.shareCardPreview.style.color = textColorForBg(colors[3]);
+        els.shareCardTitle.textContent = fonts.name;
+        els.shareCardSubtitle.textContent = mood.shareLine;
+        els.shareMoodPill.textContent = mood.name;
+        els.shareCardTitle.style.fontFamily = `'${fonts.heading}', serif`;
+        els.shareCardSubtitle.style.fontFamily = `'${fonts.body}', sans-serif`;
+
+        els.shareSwatches.innerHTML = "";
+        palette.colors.forEach((color) => {
+          const swatch = document.createElement("span");
+          swatch.className = "share-swatch";
+          swatch.style.background = color.hex;
+          els.shareSwatches.appendChild(swatch);
+        });
+      }
+
+      function renderCollection(container, list, type) {
+        if (!list.length) {
+          container.className = "saved-list empty-state";
+          container.textContent =
+            type === "history"
+              ? "Generate a few looks and your recent aesthetics will show up here."
+              : "Save your favorite directions to build a mini inspiration library.";
+          return;
+        }
+
+        container.className = "saved-list";
+        container.innerHTML = "";
+
+        list.forEach((item, index) => {
+          const wrapper = document.createElement("article");
+          wrapper.className = "saved-item";
+
+          const swatchesMarkup = item.palette.colors
+            .map(
+              (color) =>
+                `<span class="saved-item__swatch" style="background:${color.hex}"></span>`,
+            )
+            .join("");
+
+          wrapper.innerHTML = `
+          <div class="saved-item__top">
+            <div>
+              <h3 class="saved-item__title">${item.mood.name}</h3>
+              <p class="saved-item__meta">${item.fonts.name}<br>${item.palette.name}</p>
+            </div>
+          </div>
+          <div class="saved-item__swatches">${swatchesMarkup}</div>
+          <div class="saved-item__actions">
+            <button class="saved-item__btn load-btn" type="button">Load</button>
+            ${type === "favorites" ? `<button class="saved-item__btn remove-btn" type="button">Remove</button>` : ""}
+          </div>
+        `;
+
+          wrapper
+            .querySelector(".load-btn")
+            .addEventListener("click", () => applyAesthetic(item, false));
+
+          if (type === "favorites") {
+            wrapper
+              .querySelector(".remove-btn")
+              .addEventListener("click", () => removeFavorite(index));
+          }
+
+          container.appendChild(wrapper);
+        });
+      }
+
+      function renderHistory() {
+        renderCollection(els.historyList, state.history, "history");
+      }
+
+      function renderFavorites() {
+        renderCollection(els.favoritesList, state.favorites, "favorites");
+      }
+
+      function setTheme(isDark) {
+        state.darkMode = isDark;
+        els.body.classList.toggle("dark", isDark);
+        localStorage.setItem("asg-darkmode", JSON.stringify(isDark));
+      }
+
+      function downloadShareCard() {
+        if (!state.current) return;
+
+        const canvas = document.createElement("canvas");
+        canvas.width = 1400;
+        canvas.height = 840;
+        const ctx = canvas.getContext("2d");
+
+        const colors = state.current.palette.colors.map((c) => c.hex);
+        const gradient = ctx.createLinearGradient(0, 0, 1400, 840);
+        gradient.addColorStop(0, colors[3]);
+        gradient.addColorStop(1, colors[2]);
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "rgba(255,255,255,0.08)";
+        ctx.beginPath();
+        ctx.roundRect(72, 72, 1256, 696, 32);
+        ctx.fill();
+
+        ctx.fillStyle = "rgba(255,255,255,0.9)";
+        ctx.font = "700 28px Inter";
+        ctx.fillText("Aesthetic Studio", 108, 132);
+
+        ctx.font = "700 26px Inter";
+        const pillText = state.current.mood.name;
+        const pillWidth = ctx.measureText(pillText).width + 48;
+        ctx.fillStyle = "rgba(255,255,255,0.14)";
+        ctx.beginPath();
+        ctx.roundRect(108, 168, pillWidth, 52, 26);
+        ctx.fill();
+        ctx.fillStyle = "rgba(255,255,255,0.96)";
+        ctx.fillText(pillText, 132, 202);
+
+        ctx.font = "700 72px Georgia";
+        ctx.fillText(state.current.fonts.name, 108, 320);
+
+        ctx.font = "500 32px Inter";
+        wrapText(ctx, state.current.mood.shareLine, 108, 390, 860, 46);
+
+        const swatchY = 610;
+        state.current.palette.colors.forEach((color, index) => {
+          const x = 108 + index * 118;
+          ctx.fillStyle = color.hex;
+          ctx.beginPath();
+          ctx.roundRect(x, swatchY, 94, 94, 22);
+          ctx.fill();
+        });
+
+        const link = document.createElement("a");
+        link.download = `aesthetic-${state.current.mood.name.toLowerCase().replace(/\s+/g, "-")}.png`;
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+        showToast("Share card downloaded");
+      }
+
+      function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+        const words = text.split(" ");
+        let line = "";
+        for (let n = 0; n < words.length; n++) {
+          const testLine = line + words[n] + " ";
+          const metrics = ctx.measureText(testLine);
+          if (metrics.width > maxWidth && n > 0) {
+            ctx.fillText(line, x, y);
+            line = words[n] + " ";
+            y += lineHeight;
+          } else {
+            line = testLine;
+          }
+        }
+        ctx.fillText(line, x, y);
+      }
+
+      function copyPaletteAsCss() {
+        if (!state.current) return;
+        const colors = state.current.palette.colors;
+        const cssVars = colors
+          .map(
+            (color) =>
+              `--${color.role.toLowerCase().replace(/\s+/g, "-")}: ${color.hex};`,
+          )
+          .join("\n");
+        const cssBlock = `:root {\n  ${cssVars}\n}`;
+        copyText(cssBlock, "Palette CSS");
+      }
+
+      document.addEventListener("keydown", (event) => {
+        if (event.code !== "Space" || event.repeat) return;
+
+        const target = event.target;
+        const isInteractiveTarget =
+          target instanceof HTMLElement &&
+          (target.matches("input, textarea, select, button, a") ||
+            target.isContentEditable);
+
+        if (isInteractiveTarget) return;
+
+        event.preventDefault();
+        generateAesthetic();
+      });
+
+      els.generateBtn.addEventListener("click", generateAesthetic);
+      els.favoriteBtn.addEventListener("click", saveFavorite);
+      els.copyMoodBtn.addEventListener("click", () =>
+        copyText(state.current.mood.name, "Mood"),
+      );
+      els.copyFontsBtn.addEventListener("click", () =>
+        copyText(state.current.fonts.name, "Font pairing"),
+      );
+      els.copyCssBtn.addEventListener("click", copyPaletteAsCss);
+      els.themeToggle.addEventListener("click", () =>
+        setTheme(!state.darkMode),
+      );
+      els.downloadCardBtn.addEventListener("click", downloadShareCard);
+
+      setTheme(state.darkMode);
+
+      if (state.history.length) {
+        state.current = state.history[0];
+        renderCurrent();
+        renderHistory();
+        renderFavorites();
+      } else {
+        generateAesthetic();
+      }
